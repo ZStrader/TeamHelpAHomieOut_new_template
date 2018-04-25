@@ -6,22 +6,27 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
+import { CommonModule } from '@angular/common';
 
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 
 
 import { AppComponent } from './app.component';
+import { AuthGuard } from './core/auth.guard';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { NotfoundComponentComponent } from './notfound-component/notfound-component.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: 'create-account', component:  CreateAccountComponent},
-  { path: 'profile', component: ProfilePageComponent },
+  { path: 'create-account', component:  CreateAccountComponent,  canActivate: [AuthGuard]},
+  { path: 'profile', component: ProfilePageComponent,  canActivate: [AuthGuard] },
   { path: 'home', component: MainPageComponent },
+  { path: 'zipper', component: UserProfileComponent },
   { path: '**',  component: NotfoundComponentComponent }
 ];
 
@@ -31,7 +36,8 @@ const appRoutes: Routes = [
     AppNavbarComponent,
     CreateAccountComponent,
     MainPageComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,10 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule.forRoot(),
-    AppNavbarComponent
+    AppNavbarComponent,
+    CoreModule,
+    UserProfileComponent,
+    CommonModule
   ],
   exports: [
     RouterModule
@@ -50,4 +59,3 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-//export class RoutingModule { }
