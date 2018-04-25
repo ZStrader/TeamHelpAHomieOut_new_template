@@ -19,6 +19,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { NotfoundComponentComponent } from './notfound-component/notfound-component.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     AppNavbarComponent,
     CoreModule,
     UserProfileComponent,
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   exports: [
     RouterModule
