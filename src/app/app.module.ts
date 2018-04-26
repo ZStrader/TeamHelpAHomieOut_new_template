@@ -50,10 +50,8 @@ import { Routes, RouterModule } from '@angular/router';
     NgbModule.forRoot(),
     CoreModule,
     CommonModule,
+    HttpClientModule,
     AppRoutingModule
-  ],
-  exports: [
-    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
