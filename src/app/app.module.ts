@@ -23,13 +23,14 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-const appRoutes: Routes = [
+/*const appRoutes: Routes = [
   { path: 'create-account', component:  CreateAccountComponent,  canActivate: [AuthGuard]},
   { path: 'profile', component: ProfilePageComponent,  canActivate: [AuthGuard] },
   { path: 'home', component: MainPageComponent },
-  { path: 'zipper', component: UserProfileComponent },
-  { path: '**',  component: NotfoundComponentComponent }
+  { path: 'nothing', component: UserProfileComponent },
+  { path: '',  component: NotfoundComponentComponent }
 ];
+*/ 
 
 @NgModule({
   declarations: [
@@ -43,14 +44,11 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule.forRoot(),
-    AppNavbarComponent,
     CoreModule,
-    UserProfileComponent,
     CommonModule,
     AppRoutingModule
   ],
