@@ -30,7 +30,7 @@ import { Routes, RouterModule } from '@angular/router';
   { path: 'nothing', component: UserProfileComponent },
   { path: '',  component: NotfoundComponentComponent }
 ];
-*/ 
+*/
 
 @NgModule({
   declarations: [
